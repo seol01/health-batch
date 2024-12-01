@@ -1,6 +1,17 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: local
-    password: password
-    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:mydb
+    url: jdbc:mysql://127.0.0.1:3306/health
+    username: root
+    password: ####
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+
+  batch:
+    jdbc:
+      initialize-schema: always
+
+  logging:
+    level:
+      org.hibernate.type.descriptor.sql: trace
